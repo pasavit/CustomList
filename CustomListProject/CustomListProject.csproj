@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67126646-DD53-41E3-9E64-76BAF17F0E19}</ProjectGuid>
+    <ProjectGuid>{41FBDFBF-5779-4B73-9510-50D92F796C4B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CustomListUnitTestStarter</RootNamespace>
-    <AssemblyName>CustomListUnitTestStarter</AssemblyName>
+    <RootNamespace>CustomListProject</RootNamespace>
+    <AssemblyName>CustomListProject</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -1,13 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CustomListUnitTestStarter;
+using CustomListProject;
 
-namespace CustomListTests
+namespace CustomListTest
 {
     [TestClass]
-    public class CustomListUnitTests
+    public class CustomListTest
     {
-
         //ADD METHOD
         [TestMethod]
         public void Add_AddItemToEmptyList_ItemGoesToIndexZero()
@@ -63,7 +62,7 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestMethod]
         public void Add_AddItemToPopulatedList_CountIncrementsByOne()
         {
@@ -84,7 +83,7 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestMethod]
         public void Add_AddMoreItemsThanCurrentCapacity_CapacityDoubles()
         {
@@ -105,7 +104,7 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
-        
+
         //REMOVE METHODS
         [TestMethod]
         public void Remove_RemoveItemFromList_FourGoesToIndexZero()
@@ -139,7 +138,7 @@ namespace CustomListTests
             int actual;
             // Act
             testList.Remove(item);
-            actual = testList.Count(); // error expected until "Count" is added to class
+            actual = testList.Count; // error expected until "Count" is added to class
             // Assert
             Assert.AreEqual(expected, actual);
         }
@@ -198,7 +197,7 @@ namespace CustomListTests
             actual = testList.Count; // error expected until "Count" is added to class
             // Assert
             Assert.AreEqual(expected, actual);
-        }  
+        }
         [TestMethod]
         public void Remove_RemoveOneOfTwoSameItemFromList_CountOfOneItem()
         {
@@ -212,48 +211,9 @@ namespace CustomListTests
             int actual;
             // Act
             testList.Remove(4);
-            actual = testList.Count(4); // error expected until "Count" is added to class
+            actual = testList.Count; // error expected until "Count" is added to class
             // Assert
             Assert.AreEqual(expected, actual);
         }
-
-        
-        //[TestMethod]
-        //public void Find_FindFirstIndexOf4_IndexOf1()
-        //{
-        //    // Arrange
-        //    CustomList<int> testList = new CustomList<int>() { 2, 4, 4, 6 };
-        //    int expected = 1;
-        //    int actual;
-
-        //    // Act
-        //    actual = testList.IndexOf(4); // error expected until "Count" is added to class
-
-        //    // Assert
-        //    Assert.AreEqual(expected, actual);
-        //}
-        
-        //[TestMethod]
-        //public void Find_FindLastIndexOf4_IndexOf2()
-        //{
-        //    // Arrange
-        //    CustomList<int> testList = new CustomList<int>() { 2, 4, 4, 6 };
-        //    int expected = 1;
-        //    int actual;
-
-        //    // Act
-        //    actual = testList.IndexOf(4); // error expected until "Count" is added to class
-
-        //    // Assert
-        //    Assert.AreEqual(expected, actual);
-        //}
-
-
-
-        // what if i .Add to a list that has a couple things in it already (position of item)?
-        // what if i .Add to a list that has a couple things in it already (value of Count)?
-        // how does the Capacity change as you add things? (starts at 4, and doubles)
-
-        // REMOVE TESTS:
     }
 }
