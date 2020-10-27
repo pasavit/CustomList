@@ -13,7 +13,6 @@ namespace CustomListProject
         private int capacity;
         private int index;
         private T[] items;
-        private int nextIndex = 0;
 
         //Properties
 
@@ -40,6 +39,7 @@ namespace CustomListProject
         }
 
         //Indexer
+        //make sure to address accessing index outside of the size of array
         public T this[int i]
         {
             get
@@ -56,8 +56,8 @@ namespace CustomListProject
         //Constructor
         public CustomList()
         {
-            Capacity = 4;
-            items = new T[Capacity];
+            capacity = 4;
+            items = new T[capacity];
         }
 
 
@@ -67,10 +67,16 @@ namespace CustomListProject
             //logic to "add" to my items array//what are the steps to add item? increase capacity?
             //1. add item to list at next available index
             //2. if nextIndex > Capacity, Capacity doubles
-            items[nextIndex++] = item;
-            if (nextIndex > Capacity)
+            items[count] = item;
+            count++;
+            if (count >= Capacity)
             {
-                Capacity *= 2;
+                capacity *= 2;
+                //T[] temporary = new T[capacity];
+                //items += temporary;
+                T[] temporary = items;
+                items = new T[capacity];
+                items = temporary;
             }
 
         }
