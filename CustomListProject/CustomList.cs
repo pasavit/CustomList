@@ -98,9 +98,10 @@ namespace CustomListProject
         {
             T[] temporary = new T[items.Length];
             int j = 0;
+            int removedCount = 0;
             for (int i = 0; i < items.Length; i++)
             {
-                if(!items[i].Equals(item))
+                if(!items[i].Equals(item) || removedCount == 1)
                 {
                     temporary[j] = items[i];
                     j++;
@@ -108,10 +109,10 @@ namespace CustomListProject
                 else
                 {
                     count--;
+                    removedCount++;
                 }
             }
             items = temporary;
-         
         }
     }
 }
