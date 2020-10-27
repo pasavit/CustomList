@@ -80,7 +80,7 @@ namespace CustomListProject
         //}
         public void Add(T item)
         {
-            if (count >= Capacity)
+            if (count >= capacity)
             {
                 capacity *= 2;
                 T[] temporary = items;
@@ -96,7 +96,22 @@ namespace CustomListProject
 
         public void Remove(T item)
         {
-            //1. 
+            T[] temporary = new T[items.Length];
+            int j = 0;
+            for (int i = 0; i < items.Length; i++)
+            {
+                if(!items[i].Equals(item))
+                {
+                    temporary[j] = items[i];
+                    j++;
+                }
+                else
+                {
+                    count--;
+                }
+            }
+            items = temporary;
+         
         }
     }
 }
