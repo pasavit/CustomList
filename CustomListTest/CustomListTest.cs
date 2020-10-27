@@ -207,7 +207,7 @@ namespace CustomListTest
             testList.Add(4);
             testList.Add(4);
             testList.Add(6);
-            int expected = 1;
+            int expected = 3;
             int actual;
             // Act
             testList.Remove(4);

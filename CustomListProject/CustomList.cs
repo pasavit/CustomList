@@ -62,23 +62,36 @@ namespace CustomListProject
 
 
         //Methods
-        public void Add(T item)
-        {
             //logic to "add" to my items array//what are the steps to add item? increase capacity?
             //1. add item to list at next available index
             //2. if nextIndex > Capacity, Capacity doubles
-            items[count] = item;
-            count++;
+        //public void Add(T item)
+        //{
+        //    if (count >= Capacity)
+        //    {
+        //        capacity *= 2;
+        //        T[] temporary = items;
+        //        items = new T[capacity];
+
+        //        Array.Copy(temporary, items, temporary.Length);
+        //    }
+        //    items[count] = item;
+        //    count++;
+        //}
+        public void Add(T item)
+        {
             if (count >= Capacity)
             {
                 capacity *= 2;
-                //T[] temporary = new T[capacity];
-                //items += temporary;
                 T[] temporary = items;
                 items = new T[capacity];
-                items = temporary;
+                for (int i = 0; i < temporary.Length; i++)
+                {
+                    items[i] = temporary[i];
+                }
             }
-
+            items[count] = item;
+            count++;
         }
 
         public void Remove(T item)
