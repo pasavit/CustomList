@@ -44,7 +44,14 @@ namespace CustomListProject
         {
             get
             {
+                if (i <= items.Length)
+                {
                 return items[i];
+                }
+                else
+                {
+                throw new IndexOutOfRangeException();
+                }
             }
             set
             {
@@ -60,24 +67,6 @@ namespace CustomListProject
             items = new T[capacity];
         }
 
-
-        //Methods
-            //logic to "add" to my items array//what are the steps to add item? increase capacity?
-            //1. add item to list at next available index
-            //2. if nextIndex > Capacity, Capacity doubles
-        //public void Add(T item)
-        //{
-        //    if (count >= Capacity)
-        //    {
-        //        capacity *= 2;
-        //        T[] temporary = items;
-        //        items = new T[capacity];
-
-        //        Array.Copy(temporary, items, temporary.Length);
-        //    }
-        //    items[count] = item;
-        //    count++;
-        //}
         public void Add(T item)
         {
             if (count >= capacity)
@@ -114,6 +103,11 @@ namespace CustomListProject
             }
             items = temporary;
         }
+
+        //public override string ToString()
+        //{
+        //    return base.ToString();
+        //}
     }
 }
 
