@@ -262,7 +262,7 @@ namespace CustomListTest
             testList.Add(4);
             testList.Add(4);
             testList.Add(6);
-            string expected = "2, 4, 4, 6";
+            string expected = "2 4 4 6";
             string actual;
             // Act
             actual = testList.ToString();
@@ -279,8 +279,8 @@ namespace CustomListTest
             testList.Add("is");
             testList.Add("a");
             testList.Add("test.");
-            string expected = "This, is, a, test.";
-            string actual;
+            string expected = "This is a test.";
+            string actual; 
             // Act
             actual = testList.ToString();
             // Assert
@@ -300,7 +300,7 @@ namespace CustomListTest
             testList.Add(test2);
             testList.Add(test3);
             testList.Add(test4);
-            string expected = "true, false, true, false";
+            string expected = "True False True False";
             string actual;
             // Act
             actual = testList.ToString();

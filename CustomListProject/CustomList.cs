@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T> //T = int
+    public class CustomList<T>/* : IEnumerable*/
     {
         //Global Member Variables
         private int count;
@@ -67,6 +68,11 @@ namespace CustomListProject
             items = new T[capacity];
         }
 
+        //public IEnumerable GetEnumerator()
+        //{
+
+        //}
+
         public void Add(T item)
         {
             if (count >= capacity)
@@ -104,10 +110,25 @@ namespace CustomListProject
             items = temporary;
         }
 
-        //public override string ToString()
-        //{
-        //    return base.ToString();
-        //}
+        public override string ToString()
+        {
+            string stringItems = "";
+            string temporary = "";
+            for (int i = 0; i < Count; i++)
+            {
+                if (i != Count-1 )
+                {
+                    temporary = items[i].ToString();
+                    stringItems += temporary + " ";
+                }
+                else
+                {
+                    temporary = items[i].ToString();
+                    stringItems += temporary;
+                }
+            }
+            return stringItems;
+        }
     }
 }
 
