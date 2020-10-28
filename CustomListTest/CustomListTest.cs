@@ -307,5 +307,71 @@ namespace CustomListTest
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Overload_TwoIntLists_ToOneList()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testListTwo = new CustomList<int>();
+            CustomList<int> testListResult = new CustomList<int>();
+            CustomList<int> actual;
+            testList.Add(2);
+            testList.Add(4);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            testListResult.Add(2);
+            testListResult.Add(4);
+            testListResult.Add(4);
+            testListResult.Add(6);
+            CustomList<int> expected = testListResult;
+
+            // Act
+            actual = testList + testListTwo;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        
+        [TestMethod]
+        public void Overload_TwoStringLists_ToOneList()
+        {
+            // Arrange
+            CustomList<string> testList = new CustomList<string>();
+            CustomList<string> testListTwo = new CustomList<string>();
+            CustomList<string> testListResult = new CustomList<string>();
+            CustomList<string> actual;
+            testList.Add("This");
+            testList.Add("is");
+            testListTwo.Add("a");
+            testListTwo.Add("test.");
+            testListResult.Add("This");
+            testListResult.Add("is");
+            testListResult.Add("a");
+            testListResult.Add("test");
+            CustomList<string> expected = testListResult;
+
+            // Act
+            actual = testList + testListTwo;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        //[TestMethod]
+        //public void ListToString_AddFourStringsToList_PrintFourStringsInString()
+        //{
+        //    // Arrange
+        //    CustomList<string> testList = new CustomList<string>();
+        //    testList.Add("This");
+        //    testList.Add("is");
+        //    testList.Add("a");
+        //    testList.Add("test.");
+        //    string expected = "This is a test.";
+        //    string actual;
+        //    // Act
+        //    actual = testList.ToString();
+        //    // Assert
+        //    Assert.AreEqual(expected, actual);
+        //}
     }
 }
