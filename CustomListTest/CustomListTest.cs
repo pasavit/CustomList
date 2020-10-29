@@ -330,7 +330,7 @@ namespace CustomListTest
             actual = testList + testListTwo;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.ToString(), actual.ToString());
         }
         
         [TestMethod]
@@ -348,30 +348,14 @@ namespace CustomListTest
             testListResult.Add("This");
             testListResult.Add("is");
             testListResult.Add("a");
-            testListResult.Add("test");
+            testListResult.Add("test.");
             CustomList<string> expected = testListResult;
 
             // Act
             actual = testList + testListTwo;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.ToString(), actual.ToString());
         }
-        //[TestMethod]
-        //public void ListToString_AddFourStringsToList_PrintFourStringsInString()
-        //{
-        //    // Arrange
-        //    CustomList<string> testList = new CustomList<string>();
-        //    testList.Add("This");
-        //    testList.Add("is");
-        //    testList.Add("a");
-        //    testList.Add("test.");
-        //    string expected = "This is a test.";
-        //    string actual;
-        //    // Act
-        //    actual = testList.ToString();
-        //    // Assert
-        //    Assert.AreEqual(expected, actual);
-        //}
     }
 }

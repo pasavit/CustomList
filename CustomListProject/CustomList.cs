@@ -129,6 +129,20 @@ namespace CustomListProject
             }
             return stringItems;
         }
+
+        public static CustomList<T> operator+ (CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> combinedList = new CustomList<T>();
+            for (int i = 0; i < one.Count; i++)
+            {
+                combinedList.Add(one[i]);
+            }
+            for (int j = 0; j < two.Count; j++)
+            {
+                combinedList.Add(two[j]);
+            }
+            return combinedList;
+        }
     }
 }
 
