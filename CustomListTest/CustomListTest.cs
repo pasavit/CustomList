@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CustomListProject;
+using System.Collections;
 
 namespace CustomListTest
 {
@@ -289,6 +290,7 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
 
+        //Operator+
         [TestMethod]
         public void Overload_TwoIntLists_ToOneList()
         {
@@ -432,5 +434,86 @@ namespace CustomListTest
             // Assert
             Assert.AreEqual(expected.ToString(), actual.ToString());
         }
+
+        //ZIP METHOD
+        [TestMethod]
+        public void Zip_TwoIntLists_ToOneList()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testListTwo = new CustomList<int>();
+            CustomList<int> testListResult = new CustomList<int>();
+            CustomList<int> actual;
+            testList.Add(1);
+            testList.Add(3);
+            testList.Add(5);
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            testListResult.Add(1);
+            testListResult.Add(2);
+            testListResult.Add(3);
+            testListResult.Add(4);
+            testListResult.Add(5);
+            testListResult.Add(6);
+            CustomList<int> expected = testListResult;
+
+            // Act
+            actual = CustomList<int>.Zip(testList, testListTwo);
+
+            // Assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
+
+        [TestMethod]
+        public void Zip_TwoStringLists_ToOneList()
+        {
+            // Arrange
+            CustomList<string> testList = new CustomList<string>();
+            CustomList<string> testListTwo = new CustomList<string>();
+            CustomList<string> testListResult = new CustomList<string>();
+            CustomList<string> actual;
+            testList.Add("This");
+            testList.Add("a");
+            testList.Add("test");
+            testListTwo.Add("is");
+            testListTwo.Add("successful");
+            testListResult.Add("This");
+            testListResult.Add("is");
+            testListResult.Add("a");
+            testListResult.Add("successful");
+            testListResult.Add("test");
+            CustomList<string> expected = testListResult;
+
+            // Act
+            actual = CustomList<string>.Zip(testList, testListTwo);
+
+            // Assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
+
+        [TestMethod]
+        public void Zip_TwoIntListsOneIsEmpty_ToOneList()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testListTwo = new CustomList<int>();
+            CustomList<int> testListResult = new CustomList<int>();
+            CustomList<int> actual;
+            testList.Add(1);
+            testList.Add(3);
+            testList.Add(5);
+            testListResult.Add(1);
+            testListResult.Add(3);
+            testListResult.Add(5);
+            CustomList<int> expected = testListResult;
+
+            // Act
+            actual = CustomList<int>.Zip(testList, testListTwo);
+
+            // Assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
+
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections;
 
 namespace CustomListProject
 {
-    public class CustomList<T>/* : IEnumerable*/
+    public class CustomList<T> : IEnumerable
     {
         //Global Member Variables
         private int count;
-
         private int capacity;
         private int index;
         private T[] items;
@@ -63,10 +63,6 @@ namespace CustomListProject
             items = new T[capacity];
         }
 
-        //public IEnumerable GetEnumerator()
-        //{
-        //}
-
         public void Add(T item)
         {
             if (count >= capacity)
@@ -108,7 +104,7 @@ namespace CustomListProject
         {
             string stringItems = "";
             string temporary = "";
-            for (int i = 0; i < Count; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (i != Count - 1)
                 {
@@ -127,11 +123,11 @@ namespace CustomListProject
         public static CustomList<T> operator +(CustomList<T> one, CustomList<T> two)
         {
             CustomList<T> combinedList = new CustomList<T>();
-            for (int i = 0; i < one.Count - 1; i++)
+            for (int i = 0; i < one.count; i++)
             {
                 combinedList.Add(one[i]);
             }
-            for (int j = 0; j < two.Count - 1; j++)
+            for (int j = 0; j < two.count; j++)
             {
                 combinedList.Add(two[j]);
             }
@@ -141,10 +137,10 @@ namespace CustomListProject
         public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
         {
             CustomList<T> combinedList = new CustomList<T>();
-            for (int i = 0; i < one.Count; i++)
+            for (int i = 0; i < one.count; i++)
             {
                 int dupe = 0;
-                for (int j = 0; j < two.Count; j++)
+                for (int j = 0; j < two.count; j++)
                 {
                     if (two[j].Equals(one[i]))
                     {
@@ -158,6 +154,48 @@ namespace CustomListProject
                 }
             }
             return combinedList;
+        }
+
+        public static CustomList<T> Zip(CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> zippedList = new CustomList<T>();
+            if( one.count >= two.count)
+            {
+                for (int i = 0; i < one.count; i++)
+                {
+                    if (i < one.count)
+                    {
+                        zippedList.Add(one[i]);
+                    }
+                    if (i < two.count)
+                    {
+                        zippedList.Add(two[i]);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < two.count; i++)
+                {
+                    if(i < one.count)
+                    {
+                        zippedList.Add(one[i]);
+                    }
+                    if (i < two.count)
+                    {
+                        zippedList.Add(two[i]);
+                    }
+                }
+            }
+            return zippedList;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
         }
     }
 }
