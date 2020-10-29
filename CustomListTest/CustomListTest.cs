@@ -357,5 +357,99 @@ namespace CustomListTest
             // Assert
             Assert.AreEqual(expected.ToString(), actual.ToString());
         }
+
+        [TestMethod]
+        public void Overload_TwoIntListsButOneIsEmpty_ToOneList()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testListTwo = new CustomList<int>();
+            CustomList<int> testListResult = new CustomList<int>();
+            CustomList<int> actual;
+            testList.Add(2);
+            testList.Add(4);
+            testListResult.Add(2);
+            testListResult.Add(4);
+            CustomList<int> expected = testListResult;
+
+            // Act
+            actual = testList + testListTwo;
+
+            // Assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
+
+        //OPERATOR-
+        [TestMethod]
+        public void OverloadMinus_TwoIntLists_RemoveDupesInListTwoFromListOne()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testListTwo = new CustomList<int>();
+            CustomList<int> testListResult = new CustomList<int>();
+            CustomList<int> actual;
+            testList.Add(2);
+            testList.Add(4);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            testListResult.Add(2);
+            CustomList<int> expected = testListResult;
+
+            // Act
+            actual = testList - testListTwo;
+
+            // Assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
+
+        [TestMethod]
+        public void OverloadMinus_TwoStringLists_RemoveDupesInListTwoFromListOne()
+        {
+            // Arrange
+            CustomList<string> testList = new CustomList<string>();
+            CustomList<string> testListTwo = new CustomList<string>();
+            CustomList<string> testListResult = new CustomList<string>();
+            CustomList<string> actual;
+            testList.Add("This");
+            testList.Add("test");
+            testList.Add("is");
+            testList.Add("a");
+            testList.Add("SUCCESS");
+            testListTwo.Add("This");
+            testListTwo.Add("is");
+            testListTwo.Add("a");
+            testListTwo.Add("test");
+            testListResult.Add("SUCCESS");
+            CustomList<string> expected = testListResult;
+
+            // Act
+            actual = testList - testListTwo;
+
+            // Assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
+
+        [TestMethod]
+        public void OverloadMinus_ListOneHasMultipleOfSame_RemoveAllDupesInListTwoFromListOne()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testListTwo = new CustomList<int>();
+            CustomList<int> testListResult = new CustomList<int>();
+            CustomList<int> actual;
+            testList.Add(2);
+            testList.Add(4);
+            testList.Add(4);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            testListResult.Add(2);
+            CustomList<int> expected = testListResult;
+
+            // Act
+            actual = testList - testListTwo;
+
+            // Assert
+            Assert.AreEqual(expected.ToString(), actual.ToString());
+        }
     }
 }
