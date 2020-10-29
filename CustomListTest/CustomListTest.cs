@@ -26,25 +26,6 @@ namespace CustomListTest
             // Assert
             Assert.AreEqual(expected, actual);
         }
-        
-        //[TestMethod]
-        //public void Check_InvalidIndex_ExceptionThrown()
-        //{
-        //    // Arrange
-        //    CustomList<int> testList = new CustomList<int>();
-        //    testList.Add(2);
-        //    testList.Add(4);
-        //    testList.Add(4);
-        //    testList.Add(6);
-        //    var expected = new IndexOutOfRangeException();
-        //    int actual;
-
-        //    // Act
-        //    actual = testList[5]; 
-
-        //    // Assert
-        //    Assert.AreEqual(expected, actual);
-        //}
 
         //ADD METHOD
         [TestMethod]

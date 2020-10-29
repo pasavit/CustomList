@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomListProject
 {
@@ -11,6 +6,7 @@ namespace CustomListProject
     {
         //Global Member Variables
         private int count;
+
         private int capacity;
         private int index;
         private T[] items;
@@ -47,11 +43,11 @@ namespace CustomListProject
             {
                 if (i <= items.Length)
                 {
-                return items[i];
+                    return items[i];
                 }
                 else
                 {
-                throw new IndexOutOfRangeException();
+                    throw new IndexOutOfRangeException();
                 }
             }
             set
@@ -59,7 +55,6 @@ namespace CustomListProject
                 items[i] = value;
             }
         }
-
 
         //Constructor
         public CustomList()
@@ -70,7 +65,6 @@ namespace CustomListProject
 
         //public IEnumerable GetEnumerator()
         //{
-
         //}
 
         public void Add(T item)
@@ -96,7 +90,7 @@ namespace CustomListProject
             int removedCount = 0;
             for (int i = 0; i < items.Length; i++)
             {
-                if(!items[i].Equals(item) || removedCount == 1)
+                if (!items[i].Equals(item) || removedCount == 1)
                 {
                     temporary[j] = items[i];
                     j++;
@@ -116,7 +110,7 @@ namespace CustomListProject
             string temporary = "";
             for (int i = 0; i < Count; i++)
             {
-                if (i != Count-1 )
+                if (i != Count - 1)
                 {
                     temporary = items[i].ToString();
                     stringItems += temporary + " ";
@@ -130,16 +124,38 @@ namespace CustomListProject
             return stringItems;
         }
 
-        public static CustomList<T> operator+ (CustomList<T> one, CustomList<T> two)
+        public static CustomList<T> operator +(CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> combinedList = new CustomList<T>();
+            for (int i = 0; i < one.Count - 1; i++)
+            {
+                combinedList.Add(one[i]);
+            }
+            for (int j = 0; j < two.Count - 1; j++)
+            {
+                combinedList.Add(two[j]);
+            }
+            return combinedList;
+        }
+
+        public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
         {
             CustomList<T> combinedList = new CustomList<T>();
             for (int i = 0; i < one.Count; i++)
             {
-                combinedList.Add(one[i]);
-            }
-            for (int j = 0; j < two.Count; j++)
-            {
-                combinedList.Add(two[j]);
+                int dupe = 0;
+                for (int j = 0; j < two.Count; j++)
+                {
+                    if (two[j].Equals(one[i]))
+                    {
+                        dupe++;
+                        break;
+                    }
+                }
+                if (dupe < 1)
+                {
+                    combinedList.Add(one[i]);
+                }
             }
             return combinedList;
         }
