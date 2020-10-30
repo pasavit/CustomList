@@ -4,7 +4,7 @@ This overloads the - method to takes in two CustomLists of Generics and removes 
 
 Syntax
 public static T operator- (T item, T item);
--
+
 
 Parameters
 CustomList<T> one and CustomList<T> two
@@ -12,15 +12,15 @@ List of generic items in list one and list of generic items in list two.
 
 Returns 
 CustomList<T>
-Returns list of items from list one that were not contained in list two. 
+Returns new list of items from list one that were not contained in list two. 
 
 //EXAMPLE
 
-public class Demo
+public class Example
 {
 	CustomList<int> one = new CustomList<int>() { 2, 4, 4 }:
 	CustomList<int> two = new CustomList<int>() {4, 6 };
-	CustomList<int> three = new CustomList<int>();
+	CustomList<int> three;
 	
 	
 	public void MinusListTwoItemsFromListOne()

@@ -190,6 +190,19 @@ namespace CustomListProject
             return zippedList;
         }
 
+        public static CustomList<int> Sort(CustomList<int> list)
+        {
+            for (int i = 0; i < list.count; i++)
+            {
+                CompareInt(list[i], list[i + 1]);
+            }
+            return list;
+        }
+
+        public static int CompareInt(int one, int two)
+        {
+            return one.CompareTo(two);
+        }
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < count; i++)
@@ -199,7 +212,3 @@ namespace CustomListProject
         }
     }
 }
-
-//array loops if statements only
-//indexer??
-//ToString
